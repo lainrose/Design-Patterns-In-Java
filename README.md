@@ -12,7 +12,7 @@
 
 
 
-[유저를 생성하자 - Singleton]
+[유저를 생성하자 - Singleton](/src/User.java)
 ------------
 
 The singleton pattern ensures that only one object of a particular class is ever created.
