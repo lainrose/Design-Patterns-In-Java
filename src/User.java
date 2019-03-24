@@ -9,4 +9,8 @@ public class User {
         }
         return user;
     }
+
+    public void print(){
+        System.out.println("객체의 주소 : " + this);
+    }
 }
