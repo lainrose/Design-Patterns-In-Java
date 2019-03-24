@@ -5,7 +5,7 @@
 ## Table of Contents
 
 
-[1. 유저를 생성하자. [싱글톤 패턴]](#singleton)
+[1. 유저를 생성하자. [싱글톤 패턴]](#유저를 생성하자 - Singleton)
 
 [2. 캐릭터를 만들고 무기를 장착하자. [스트레티지 패턴]](#strategy)
   
@@ -24,7 +24,7 @@ The singleton pattern ensures that only one object of a particular class is ever
 All further references to objects of the singleton class refer to the same underlying instance.
 There are very few applications, do not overuse this pattern!
 
-#### Example:
+#### 예제:
 
 ```java
 public class User {
@@ -45,7 +45,7 @@ public class User {
 }
 ```
 
-#### Usage
+#### 사용법
 
 ```java
 User myUser = User.getInstance();
