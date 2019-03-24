@@ -24,7 +24,7 @@ The singleton pattern ensures that only one object of a particular class is ever
 All further references to objects of the singleton class refer to the same underlying instance.
 There are very few applications, do not overuse this pattern!
 
-#### 예제:
+#### 예제
 
 ```java
 public class User {
