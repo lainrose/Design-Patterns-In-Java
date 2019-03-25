@@ -1,3 +1,5 @@
+package Weapon;
+
 public class Wand implements Weapon{
     @Override
     public void attack() {

@@ -72,14 +72,14 @@ from which the required process is chosen at run-time.
 
 #### 예제
 ```java
-public interface Weapon {
+public interface Weapon.Weapon {
 
     public void attack();
 }
 ```
 
 ```java
-public class Sword implements Weapon{
+public class Weapon.Sword implements Weapon{
     @Override
     public void attack() {
         System.out.println("검으로 공격하였습니다.");
@@ -88,7 +88,7 @@ public class Sword implements Weapon{
 ```
 
 ```java
-public class Wand implements Weapon{
+public class Weapon.Wand implements Weapon{
     @Override
     public void attack() {
         System.out.println("완드로 공격하였습니다.");
@@ -97,7 +97,7 @@ public class Wand implements Weapon{
 ```
 
 ```java
-public class Knife implements Weapon {
+public class Weapon.Knife implements Weapon {
     @Override
     public void attack() {
         System.out.println("단검으로 공격하였습니다.");

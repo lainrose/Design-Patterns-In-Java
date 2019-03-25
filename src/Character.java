@@ -1,3 +1,5 @@
+import Weapon.Weapon;
+
 public class Character {
 
     private Weapon weapon;
