@@ -106,7 +106,7 @@ public class Weapon.Knife implements Weapon {
 ```
 
 ```java
-public class Character {
+public class Character_.Character_ {
 
     private Weapon weapon;
 
@@ -138,15 +138,15 @@ public class Character {
 public class Client {
 
     public static void main(String[] args){
+    Character_ character = new Character_();
+    character.attack();
+    character.setWeapon(new Sword());
+    character.attack();
+    character.setWeapon(new Knife());
+    character.attack();
+    character.setWeapon(new Wand());
+    character.attack();
 
-        Character character = new Character();
-        character.attack();
-        character.setWeapon(new Sword());
-        character.attack();
-        character.setWeapon(new Knife());
-        character.attack();
-        character.setWeapon(new Wand());
-        character.attack();
     }
 }
 ```
