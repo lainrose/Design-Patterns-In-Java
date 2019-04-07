@@ -4,6 +4,7 @@ public class MpPotion extends Item {
 
     public MpPotion(){
         name = "mp포션";
+        System.out.println(name);
     }
 
     @Override

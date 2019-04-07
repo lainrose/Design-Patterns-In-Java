@@ -7,7 +7,10 @@
 
 [1. 유저를 생성하자. [싱글톤 패턴]](#Singleton)
 
-[2. 캐릭터를 만들고 무기를 장착하자. [스트레티지 패턴]](#strategy)
+[2. 캐릭터를 만들고 무기를 장착하자. [스트레티지 패턴]](#Strategy)
+
+[99. 물약상점을 만들어보자](#FactoryMethod)
+
   
 
 디자인 패턴
@@ -160,4 +163,225 @@ public class Client {
 단검으로 공격하였습니다.
 
 완드로 공격하였습니다.
+```
+
+[물약상점을 만들어보자](/src/Store)
+------------
+
+The factory pattern is used to replace class constructors,
+abstracting the process of object generation so that the type of the object instantiated can be determined at run-time.
+
+#### 예제
+```java
+public abstract class PotionStore {
+
+    public Item orderItem(String name){
+        Item potion;
+        potion = makePotion(name);
+        System.out.println("포션 지급 완료");
+
+        return potion;
+    }
+
+    public abstract Item  makePotion(String name);
+
+}
+```
+```java
+public class CunningCityStore extends PotionStore {
+
+    public CunningCityStore(){
+        System.out.println("커닝시티 물약 상점");
+    }
+    @Override
+    public Item makePotion(String name) {
+
+        if (name.equals("mp")){
+            return new MpPotion();
+        }
+        else {
+            return null;
+        }
+    }
+}
+```
+
+```java
+public class HennesisStore extends PotionStore {
+
+    public HennesisStore(){
+        System.out.println("헤네시스 물약 상점");
+    }
+
+    @Override
+    public Item makePotion(String name) {
+
+        if (name.equals("hp")){
+            return new HpPotion();
+        }
+        else if (name.equals("mp")){
+            return new MpPotion();
+        }
+        else{
+            return null;
+        }
+    }
+}
+```
+
+```java
+public abstract class Item {
+
+    String name;
+
+    public String getName(){
+        return name;
+    }
+
+    public abstract void use();
+}
+```
+
+```java
+public class HpPotion extends Item{
+
+    public HpPotion(){
+        name = "hp포션";
+        System.out.println(name);
+    }
+
+    @Override
+    public void use() {
+        System.out.println("hp 포션 사용");
+    }
+}
+
+```
+
+```java
+public class MpPotion extends Item {
+
+    public MpPotion(){
+        name = "mp포션";
+        System.out.println(name);
+    }
+
+    @Override
+    public void use() {
+        System.out.println("MP포션을 사용");
+    }
+}
+
+```
+
+#### 사용법
+```java
+public class Client {
+
+    public static void main(String[] args){
+        
+        PotionStore hennesisStore = new HennesisStore();
+        hennesisStore.orderItem("hp");
+        hennesisStore.orderItem("mp");
+
+        PotionStore cunningCityStore = new CunningCityStore();
+        cunningCityStore.orderItem("mp");
+
+
+    }
+}
+```
+
+#### Output
+```
+헤네시스 물약 상점
+hp포션
+포션 지급 완료
+
+mp포션
+포션 지급 완료
+
+커닝시티 물약 상점
+mp포션
+포션 지급 완료
+```
+
+[리젠되는 몬스터는 계속 복사하자](/src/Monster)
+------------
+
+The prototype pattern is a creational design pattern in software development.
+It is used when the type of objects to create is determined by a prototypical instance,
+which is cloned to produce new objects.
+
+#### 예제
+```java
+public interface Monster {
+
+    Monster clone();
+
+}
+```
+
+```java
+public class Slime implements Monster {
+
+    String name;
+    int hp;
+    int damage;
+
+    public Slime(){
+        name = "Silme";
+        hp = 500;
+        damage = 100;
+    }
+    
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public Slime(Slime slime){
+        this.name = slime.name;
+        this.hp = slime.hp;
+        this.hp = slime.damage;
+    }
+
+    @Override
+    public Monster clone() {
+        System.out.println("슬라임 복제");
+        return new Slime(this);
+    }
+
+}
+```
+
+#### 사용법
+```java
+public class Client {
+
+    public static void main(String[] args){
+        
+        Monster slime = new Slime();
+        System.out.println("슬라임 체력" + ((Slime) slime).getHp());
+        ((Slime) slime).setHp(10);
+        System.out.println("슬라임 체력" + ((Slime) slime).getHp());
+
+        Monster slime1 = slime.clone();
+        System.out.println("복제 슬라임 체력" + ((Slime) slime1).getHp());
+
+
+    }
+}
+```
+
+#### Output
+```
+슬라임 체력500
+슬라임 체력10
+
+슬라임 복제
+복제 슬라임 체력10
 ```

@@ -3,6 +3,11 @@ package Store;
 import Item.*;
 
 public class ElnasStore extends PotionStore{
+
+    public ElnasStore(){
+        System.out.println("엘나스 물약 상점");
+    }
+
     @Override
     public Item makePotion(String name) {
 

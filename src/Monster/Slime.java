@@ -15,10 +15,18 @@ public class Slime implements Monster {
         damage = 100;
     }
 
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
     public Slime(Slime slime){
         this.name = slime.name;
         this.hp = slime.hp;
-        this.hp = slime.damage;
+        this.hp = slime.hp;
     }
 
     @Override

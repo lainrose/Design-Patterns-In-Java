@@ -1,4 +1,8 @@
 import State.RecoverState;
+import Store.CunningCityStore;
+import Store.ElnasStore;
+import Store.HennesisStore;
+import Store.PotionStore;
 import Weapon.*;
 import Monster.*;
 import Character_.Character_;
@@ -21,16 +25,29 @@ public class Client {
         character.attack();
 
         Monster slime = new Slime();
-        Monster slime1 = slime.clone();
+        System.out.println("슬라임" + ((Slime) slime).getHp());
+        ((Slime) slime).setHp(10);
+        System.out.println("슬라임" + ((Slime) slime).getHp());
 
-        System.out.println("슬라임" + slime);
-        System.out.println("복제슬라임" + slime1);
+        Monster slime1 = slime.clone();
+        System.out.println("슬라임" + ((Slime) slime1).getHp());
 
         slime.attack(character);
         slime1.attack(character);
 
         character.setState(new RecoverState());
         character.changeState();
+
+        PotionStore hennesisStore = new HennesisStore();
+        hennesisStore.orderItem("hp");
+        hennesisStore.orderItem("mp");
+        hennesisStore.orderItem("stamina");
+
+        PotionStore cunningCityStore = new CunningCityStore();
+        cunningCityStore.orderItem("mp");
+
+        PotionStore elnasStore = new ElnasStore();
+        cunningCityStore.orderItem("stamina");
 
 
     }
