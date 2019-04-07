@@ -11,6 +11,8 @@
 
 [99. 물약상점을 만들어보자](#FactoryMethod)
 
+[99. 리젠되는 몬스터는 계속 복사하자](#Prototype Pattern)
+
   
 
 디자인 패턴
