@@ -167,7 +167,7 @@ public class Client {
 완드로 공격하였습니다.
 ```
 
-[물약상점을 만들어보자](/src/Store)
+[물약상점을 만들어보자 - Factory Method](/src/Store)
 ------------
 
 The factory pattern is used to replace class constructors,
@@ -308,7 +308,7 @@ mp포션
 포션 지급 완료
 ```
 
-[리젠되는 몬스터는 계속 복사하자](/src/Monster)
+[리젠되는 몬스터는 계속 복사하자 - Prototype Pattern](/src/Monster)
 ------------
 
 The prototype pattern is a creational design pattern in software development.
