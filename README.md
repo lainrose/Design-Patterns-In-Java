@@ -4,7 +4,6 @@
 
 ## Table of Contents
 
-
 [1. 유저를 생성하자. [싱글톤 패턴]](#Singleton)
 
 [2. 캐릭터를 만들고 무기를 장착하자. [스트레티지 패턴]](#Strategy)
@@ -23,6 +22,33 @@
 >많은 사람들이 수많은 시간동안 개발하면서 여러 형태의 문제들을 해결해왔는데,
 >
 >이러한 검증된 좋은 해결 방법을 패턴이라는 이름하에 정리한 것이다.
+
+- 생성패턴
+    * Abstract Factory
+    * Builder
+    * Factory Method ✔
+    * Prototype ✔
+    * Singleton ✔
+- 구조패턴
+    * Adapter
+    * Bridge
+    * Composite ✔
+    * Decorator
+    * Façade
+    * Flyweight
+    * Proxy
+- 행위패턴
+    * Chain of Responsibility
+    * Command △
+    * Interpreter
+    * Iterator
+    * Mediator
+    * Memento
+    * Observer
+    * State △
+    * Strategy ✔
+    * Template Method
+    * Visitor
 
 [유저를 생성하자 - Singleton](/src/User.java)
    ------------
