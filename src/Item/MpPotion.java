@@ -8,6 +8,11 @@ public class MpPotion extends Item {
     }
 
     @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
     public void use() {
         System.out.println("MP포션을 사용");
     }

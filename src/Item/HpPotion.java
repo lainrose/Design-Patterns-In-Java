@@ -8,6 +8,11 @@ public class HpPotion extends Item{
     }
 
     @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
     public void use() {
         System.out.println("hp 포션 사용");
     }

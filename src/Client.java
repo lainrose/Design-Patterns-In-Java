@@ -1,3 +1,4 @@
+import Item.*;
 import State.RecoverState;
 import Store.CunningCityStore;
 import Store.ElnasStore;
@@ -48,6 +49,23 @@ public class Client {
 
         PotionStore elnasStore = new ElnasStore();
         cunningCityStore.orderItem("stamina");
+
+
+        Item bag = new Bag();
+        Item hpPotion = new HpPotion();
+        Item mpPotion = new MpPotion();
+        ((Bag) bag).addItem(hpPotion);
+        ((Bag) bag).addItem(mpPotion);
+        bag.use();
+
+        Item bag1 = new Bag();
+        Item staminaPorion = new StaminaPotion();
+        ((Bag) bag1).addItem(staminaPorion);
+
+        ((Bag) bag).addItem(bag1);
+
+        bag.use();
+
 
 
     }
