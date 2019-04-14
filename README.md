@@ -395,6 +395,9 @@ public class Client {
 The composite pattern is used to composes zero-or-more similar objects
 so that they can be manipulated as one object.
 
+- UML
+    - ![Composite](./UML_Image/Composite_Pattern.png)
+
 #### 예제
 ```java
 public class Bag extends Item{
