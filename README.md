@@ -10,9 +10,9 @@
 
 [99. 물약상점을 만들어보자. [팩토리메소드 패턴]](#FactoryMethod)
 
-[99. 가방아이템에 다른 아이템을 담고, 가방도 담아보자..? [컴포지트 패턴]](#Composite Pattern)
+[99. 가방아이템에 다른 아이템을 담고, 가방도 담아보자..? [컴포지트 패턴]](#CompositePattern)
 
-[99. 리젠되는 몬스터는 계속 복사하자 [프로토타입 패턴]](#Prototype Pattern)
+[99. 리젠되는 몬스터는 계속 복사하자 [프로토타입 패턴]](#PrototypePattern)
 
   
 
@@ -336,7 +336,7 @@ mp포션
 포션 지급 완료
 ```
 
-[리젠되는 몬스터는 계속 복사하자 - Prototype Pattern](/src/Monster)
+[리젠되는 몬스터는 계속 복사하자 - PrototypePattern](/src/Monster)
 ------------
 
 The prototype pattern is a creational design pattern in software development.
@@ -416,7 +416,7 @@ public class Client {
 복제 슬라임 체력10
 ```
 
-[가방아이템에 다른 아이템을 담고, 가방도 담아보자..? - Composite Pattern](/src/Item/Bag.java)
+[가방아이템에 다른 아이템을 담고, 가방도 담아보자..? - CompositePattern](/src/Item/Bag.java)
 ------------
 The composite pattern is used to composes zero-or-more similar objects
 so that they can be manipulated as one object.
