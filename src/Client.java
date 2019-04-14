@@ -65,8 +65,5 @@ public class Client {
         ((Bag) bag).addItem(bag1);
 
         bag.use();
-
-
-
     }
 }

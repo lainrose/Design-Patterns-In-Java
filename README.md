@@ -11,6 +11,8 @@
 
 [99. 물약상점을 만들어보자](#FactoryMethod)
 
+[99. 가방아이템에 다른 아이템을 담고, 가방도 담아보자..?](#Composite Pattern)
+
 [99. 리젠되는 몬스터는 계속 복사하자](#Prototype Pattern)
 
   
@@ -386,4 +388,92 @@ public class Client {
 
 슬라임 복제
 복제 슬라임 체력10
+```
+
+[가방아이템에 다른 아이템을 담고, 가방도 담아보자..? - Composite Pattern](/src/Item/Bag.java)
+------------
+The composite pattern is used to composes zero-or-more similar objects
+so that they can be manipulated as one object.
+
+#### 예제
+```java
+public class Bag extends Item{
+
+    public Bag(){
+        name = "가방";
+        System.out.println(name);
+    }
+
+    private List<Item> bag = new ArrayList<Item>();
+
+    public void addItem(Item item){
+        System.out.println(item.getName() + " 가방에 추가");
+        bag.add(item);
+    }
+
+    public void removeItem(Item item){
+        System.out.println(item.getName() + " 가방에서 삭제");
+        bag.remove(item);
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public void use() {
+        System.out.println("------------가방속 아이템 출력-------------");
+        for(Item item: bag){
+            System.out.println(item.getName());
+        }
+        System.out.println("-------------------------------------------");
+    }
+}
+```
+
+#### 사용법
+```java
+public class Client {
+
+    public static void main(String[] args){
+        
+        Item bag = new Bag();
+        Item hpPotion = new HpPotion();
+        Item mpPotion = new MpPotion();
+        ((Bag) bag).addItem(hpPotion);
+        ((Bag) bag).addItem(mpPotion);
+        bag.use();
+
+        Item bag1 = new Bag();
+        Item staminaPorion = new StaminaPotion();
+        ((Bag) bag1).addItem(staminaPorion);
+
+        ((Bag) bag).addItem(bag1);
+
+        bag.use();
+    }
+}
+```
+
+#### Output
+```
+가방
+hp포션
+mp포션
+hp포션 가방에 추가
+mp포션 가방에 추가
+------------가방속 아이템 출력-------------
+hp포션
+mp포션
+-------------------------------------------
+가방
+stamina포션
+stamina포션 가방에 추가
+가방 가방에 추가
+------------가방속 아이템 출력-------------
+hp포션
+mp포션
+가방
+-------------------------------------------
 ```
