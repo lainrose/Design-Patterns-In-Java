@@ -9,11 +9,11 @@
 
 [2. 캐릭터를 만들고 무기를 장착하자. [스트레티지 패턴]](#Strategy)
 
-[99. 물약상점을 만들어보자](#FactoryMethod)
+[99. 물약상점을 만들어보자. [팩토리메소드 패턴]](#FactoryMethod)
 
-[99. 가방아이템에 다른 아이템을 담고, 가방도 담아보자..?](#Composite Pattern)
+[99. 가방아이템에 다른 아이템을 담고, 가방도 담아보자..? [컴포지트 패턴]](#Composite Pattern)
 
-[99. 리젠되는 몬스터는 계속 복사하자](#Prototype Pattern)
+[99. 리젠되는 몬스터는 계속 복사하자 [프로토타입 패턴]](#Prototype Pattern)
 
   
 
