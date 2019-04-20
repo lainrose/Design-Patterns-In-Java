@@ -1,6 +1,12 @@
 package Weapon;
 
-public interface Weapon {
+public abstract class Weapon {
 
-    void attack();
+    protected String weaponName;
+
+    public abstract void attack();
+
+    public String getName(){
+        return weaponName;
+    }
 }

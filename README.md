@@ -103,6 +103,9 @@
 The strategy pattern is used to create an interchangeable family of algorithms
 from which the required process is chosen at run-time.
 
+- UML
+![Composite](./UML_Image/Strategy_Pattern.png)
+
 #### 예제
 ```java
 public interface Weapon.Weapon {

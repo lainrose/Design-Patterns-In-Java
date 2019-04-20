@@ -1,4 +1,7 @@
 import Item.*;
+import Item.Jewelry.Opal;
+import Item.Jewelry.Ruby;
+import Item.Jewelry.Sapphire;
 import State.RecoverState;
 import Store.CunningCityStore;
 import Store.ElnasStore;
@@ -65,5 +68,16 @@ public class Client {
         ((Bag) bag).addItem(bag1);
 
         bag.use();
+
+        Weapon sword = new Sword();
+        sword = new Opal(sword);
+        sword = new Sapphire(sword);
+        sword = new Ruby(sword);
+        System.out.println(sword.getName());
+        sword.attack();
+
+        Weapon wand = new Sapphire(new Opal(new Wand()));
+        System.out.println(wand.getName());
+        wand.attack();
     }
 }
