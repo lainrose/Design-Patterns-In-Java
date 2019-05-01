@@ -35,7 +35,7 @@
     * Adapter
     * Bridge
     * Composite ✔
-    * Decorator
+    * Decorator ✔
     * Façade
     * Flyweight
     * Proxy
