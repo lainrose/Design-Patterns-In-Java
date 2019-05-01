@@ -22,6 +22,4 @@ public class Opal extends WeaponDecorator {
     public String getName() {
         return name + "의 " + weapon.getName();
     }
-
-
 }

@@ -12,6 +12,8 @@
 
 [99. 가방아이템에 다른 아이템을 담고, 가방도 담아보자..? [컴포지트 패턴]](#CompositePattern)
 
+[99. 강화시스템을 만들어보자. [데코레이터 패턴]](#DecoreatorPattern)
+
 [99. 리젠되는 몬스터는 계속 복사하자 [프로토타입 패턴]](#PrototypePattern)
 
   
@@ -521,4 +523,105 @@ hp포션
 mp포션
 가방
 -------------------------------------------
+```
+
+[강화시스템을 만들어보자.  - DecoratorPattern](/src/Item/Bag.java)
+------------
+The decorator pattern is used to extend or alter the functionality of objects at run-time by wrapping them
+in an object of a decorator class.
+This provides a flexible alternative to using inheritance to modify behaviour.
+
+- UML
+![Decorator](./UML_Image/Decorator_Pattern.png)
+
+#### 예제
+```java
+public abstract class Weapon {
+
+    protected String weaponName;
+
+    public abstract void attack();
+
+    public String getName(){
+        return weaponName;
+    }
+}
+```
+
+```java
+public class Sword extends Weapon{
+
+    public Sword(){
+        weaponName = "검";
+    }
+
+    @Override
+    public void attack() {
+        System.out.println("검으로 공격하였습니다.");
+    }
+
+}
+```
+
+```java
+public abstract class WeaponDecorator extends Weapon {
+     protected Weapon weapon;
+
+    public WeaponDecorator(Weapon weapon){
+        this.weapon = weapon;
+    }
+
+    public abstract String getName();
+}
+```
+
+```java
+public class Opal extends WeaponDecorator {
+
+    private String name;
+
+    public Opal(Weapon weapon){
+        super(weapon);
+        name = "오팔";
+    }
+
+    @Override
+    public void attack() {
+        System.out.print(name + "의 ");
+        weapon.attack();
+    }
+
+    @Override
+    public String getName() {
+        return name + "의 " + weapon.getName();
+    }
+}
+```
+
+#### 사용법
+```java
+public class Client {
+
+    public static void main(String[] args){
+        
+        Weapon sword = new Sword();
+        sword = new Opal(sword);
+        sword = new Sapphire(sword);
+        sword = new Ruby(sword);
+        System.out.println(sword.getName());
+        sword.attack();
+
+        Weapon wand = new Sapphire(new Opal(new Wand()));
+        System.out.println(wand.getName());
+        wand.attack();
+    }
+}
+```
+
+#### Output
+```
+루비의 사파이어의 오팔의 검
+루비의 사파이어의 오팔의 검으로 공격하였습니다.
+사파이어의 오팔의 완드
+사파이어의 오팔의 완드로 공격하였습니다.
 ```
