@@ -1,19 +1,85 @@
 package Character_;
 
-import State.CharacterState;
-import State.PoisonState;
-import State.RecoverState;
 import Weapon.Weapon;
 
 public class Character_ {
 
-    int hp;
-    private Weapon weapon;
-    private CharacterState characterState;
+    private final String name;
+    private int level;
+    private int hp;
+    private int mp;
+    private int str;
+    private int dex;
+    private int int_;
+    private int luk;
 
-    public Character_(){
-        hp = 1000;
+    public static class Builder {
+        private final String name;
+
+        private int level = 1;
+        private int hp = 50;
+        private int mp = 200;
+        private int str = 4;
+        private int dex = 4;
+        private int int_ = 4;
+        private int luk = 4;
+
+        public Builder(String name) {
+            this.name = name;
+        }
+
+        public Builder setLevel(int level) {
+            this.level = level;
+            return this;
+        }
+
+        public Builder setHp(int hp) {
+            this.hp = hp;
+            return this;
+        }
+
+        public Builder setMp(int mp) {
+            this.mp = mp;
+            return this;
+        }
+
+        public Builder setStr(int str) {
+            this.str = str;
+            return this;
+        }
+
+        public Builder setDex(int dex) {
+            this.dex = dex;
+            return this;
+        }
+
+        public Builder setInt_(int int_) {
+            this.int_ = int_;
+            return this;
+        }
+
+        public Builder setLuk(int luk) {
+            this.luk = luk;
+            return this;
+        }
+
+        public Character_ build(){
+            return new Character_(this);
+        }
     }
+
+    public Character_(Builder builder){
+        name = builder.name;
+        level = builder.level;
+        hp = builder.hp;
+        mp = builder.mp;
+        str = builder.str;
+        dex = builder.dex;
+        int_ = builder.int_;
+        luk = builder.luk;
+    }
+
+    private Weapon weapon;
 
     public int getHp() {
         return hp;
@@ -21,14 +87,6 @@ public class Character_ {
 
     public void setHp(int hp) {
         this.hp = hp;
-    }
-
-    public void setState(CharacterState characterState){
-        this.characterState = characterState;
-    }
-
-    public void changeState(){
-        characterState.changedState(this);
     }
 
     public void walk(){

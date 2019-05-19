@@ -37,8 +37,6 @@ public class Slime implements Monster {
 
     @Override
     public void attack(Character_ character) {
-        character.setState(new PoisonState());
-        character.changeState();
         System.out.println("슬라임이 공격했습니다.");
     }
 

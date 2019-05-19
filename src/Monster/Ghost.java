@@ -25,8 +25,6 @@ public class Ghost implements Monster {
 
     @Override
     public void attack(Character_ character) {
-        character.setState(new PoisonState());
-        character.changeState();
         System.out.println("고스트가 공격했습니다.");
     }
 

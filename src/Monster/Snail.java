@@ -25,8 +25,6 @@ public class Snail implements Monster {
 
     @Override
     public void attack(Character_ character) {
-        character.setState(new PoisonState());
-        character.changeState();
         System.out.println("달팽이가 공격했습니다.");
     }
 

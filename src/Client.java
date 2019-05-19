@@ -19,7 +19,12 @@ public class Client {
         User test_user = User.getInstance();
         test_user.print();
 
-        Character_ character = new Character_();
+        Character_ character = new Character_.Builder("빌더패턴")
+                .setLevel(10)
+                .setHp(10)
+                .setDex(10)
+                .build();
+
         character.attack();
         character.setWeapon(new Sword());
         character.attack();
@@ -38,9 +43,6 @@ public class Client {
 
         slime.attack(character);
         slime1.attack(character);
-
-        character.setState(new RecoverState());
-        character.changeState();
 
         PotionStore hennesisStore = new HennesisStore();
         hennesisStore.orderItem("hp");

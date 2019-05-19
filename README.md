@@ -6,7 +6,9 @@
 
 [1. 유저를 생성하자. [싱글톤 패턴]](#Singleton)
 
-[2. 캐릭터를 만들고 무기를 장착하자. [스트레티지 패턴]](#Strategy)
+[2. 캐릭터를 만들자. [빌더 패턴]](#Builder)
+
+[3. 캐릭터에 무기를 장착하자. [스트레티지 패턴]](#Strategy)
 
 [99. 물약상점을 만들어보자. [팩토리메소드 패턴]](#FactoryMethod)
 
@@ -27,7 +29,7 @@
 
 - 생성패턴
     * Abstract Factory
-    * Builder
+    * Builder ✔
     * Factory Method ✔
     * Prototype ✔
     * Singleton ✔
@@ -99,7 +101,112 @@
    객체의 주소 : User@3498ed
    ```
 
-[캐릭터를 만들고 무기를 장착하자 - Strategy](/src/User.java)
+[캐릭터를 만들자 - Builder](/src/Character_/Character_.java)
+------------
+
+The builder pattern is used to create complex objectswith constituent parts
+that must be created in the same order or using a specific algorithm.
+An external class controls the construction algorithm.
+
+- UML
+
+#### 예제
+```java
+public class Character_ {
+
+    private final String name;
+    private int level;
+    private int hp;
+    private int mp;
+    private int str;
+    private int dex;
+    private int int_;
+    private int luk;
+
+    public static class Builder {
+        private final String name;
+
+        private int level = 1;
+        private int hp = 50;
+        private int mp = 200;
+        private int str = 4;
+        private int dex = 4;
+        private int int_ = 4;
+        private int luk = 4;
+
+        public Builder(String name) {
+            this.name = name;
+        }
+
+        public Builder setLevel(int level) {
+            this.level = level;
+            return this;
+        }
+
+        public Builder setHp(int hp) {
+            this.hp = hp;
+            return this;
+        }
+
+        public Builder setMp(int mp) {
+            this.mp = mp;
+            return this;
+        }
+
+        public Builder setStr(int str) {
+            this.str = str;
+            return this;
+        }
+
+        public Builder setDex(int dex) {
+            this.dex = dex;
+            return this;
+        }
+
+        public Builder setInt_(int int_) {
+            this.int_ = int_;
+            return this;
+        }
+
+        public Builder setLuk(int luk) {
+            this.luk = luk;
+            return this;
+        }
+
+        public Character_ build(){
+            return new Character_(this);
+        }
+    }
+
+    public Character_(Builder builder){
+        name = builder.name;
+        level = builder.level;
+        hp = builder.hp;
+        mp = builder.mp;
+        str = builder.str;
+        dex = builder.dex;
+        int_ = builder.int_;
+        luk = builder.luk;
+    }
+}
+```
+
+#### 사용법
+```java
+public class Client {
+
+    public static void main(String[] args){
+        Character_ character = new Character_.Builder("빌더패턴")
+                .setLevel(10)
+                .setHp(10)
+                .setDex(10)
+                .build();
+
+    }
+}
+```
+
+[캐릭터에 무기를 장착하자 - Strategy](/src/User.java)
 ------------
 
 The strategy pattern is used to create an interchangeable family of algorithms
@@ -176,14 +283,14 @@ public class Character_.Character_ {
 public class Client {
 
     public static void main(String[] args){
-    Character_ character = new Character_();
-    character.attack();
-    character.setWeapon(new Sword());
-    character.attack();
-    character.setWeapon(new Knife());
-    character.attack();
-    character.setWeapon(new Wand());
-    character.attack();
+        Character_ character = new Character_();
+        character.attack();
+        character.setWeapon(new Sword());
+        character.attack();
+        character.setWeapon(new Knife());
+        character.attack();
+        character.setWeapon(new Wand());
+        character.attack();
 
     }
 }
