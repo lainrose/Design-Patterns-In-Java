@@ -12,6 +12,8 @@
 
 [99. 물약상점을 만들어보자. [팩토리메소드 패턴]](#FactoryMethod)
 
+[99. 비용이 큰 공통자원은 공유하자 [플라이급 패턴]](#Flyweight)
+
 [99. 가방아이템에 다른 아이템을 담고, 가방도 담아보자..? [컴포지트 패턴]](#CompositePattern)
 
 [99. 강화시스템을 만들어보자. [데코레이터 패턴]](#DecoreatorPattern)
@@ -430,6 +432,61 @@ public class Client {
         cunningCityStore.orderItem("mp");
 
 
+    }
+}
+```
+
+
+[비용이 큰 공통자원은 공유하자 - Factory Method](/src/Store)
+------------
+
+A flyweight is an object that minimizes memory usage by sharing as much data as possible with other similar objects
+it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.
+
+#### 예제
+```java
+public class HennesisStore extends PotionStore {
+
+    Map<String, Item> Items = new HashMap<String, Item>();
+
+    public HennesisStore(){
+        System.out.println("헤네시스 물약 상점");
+    }
+
+    @Override
+    public Item makePotion(String name) {
+
+        Item item = Items.get(name);
+
+        if (name.equals("hp")){
+            if (item == null){
+                Items.put(name, new HpPotion());
+            }
+            return item;
+        }
+        else if (name.equals("mp")){
+            if (item == null){
+                Items.put(name, new MpPotion());
+            }
+            return item;
+        }
+        else{
+            return null;
+        }
+    }
+}
+```
+
+#### 사용법
+```java
+public class Client {
+
+    public static void main(String[] args){
+        
+        PotionStore hennesisStore = new HennesisStore();
+        hennesisStore.orderItem("hp");
+        hennesisStore.orderItem("mp");
+        
     }
 }
 ```
