@@ -41,7 +41,7 @@
     * Composite ✔
     * Decorator ✔
     * Façade
-    * Flyweight
+    * Flyweight ✔
     * Proxy
 - 행위패턴
     * Chain of Responsibility
